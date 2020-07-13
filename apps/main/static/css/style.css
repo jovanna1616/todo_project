@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+.header-menu {
+    background-color: #d3d3d3;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+}
+.header-menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.header-menu a:hover {
+    background: #ddd;
+    color: 000000;
+  }
+.main-container {
+padding: 1rem;
+margin-top: 15rem;
+height: auto;
+}
+.hidden {
+    display: none;
+}
+.error-message-content {
+    background-color: #ffff00;
+}
+
+form.register-form > p {
+    display: flex;
+    flex-direction: column;
+}
+.todo-form {
+    background-color: #d3d3d3;
+}
