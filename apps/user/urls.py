@@ -16,9 +16,8 @@ Including another URLconf
 from django.urls import path, include
 from . import views
 
-app_name = "main"
+app_name = "user"
 
 urlpatterns = [
-    path("", views.homepage, name="homepage"),
-    path("", include("user.urls")),
+    path("login/", views.login_request, name='login'),
 ]
