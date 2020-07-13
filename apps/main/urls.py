@@ -21,5 +21,5 @@ app_name = "main"
 urlpatterns = [
     path("", views.homepage, name="homepage"),
     path("", include("user.urls")),
-    path("", include("todos.urls"), name="todos"),
+    path("", include("todos.urls")),
 ]
