@@ -5,8 +5,11 @@
 
 <body>
     {% include "main/includes/nav-bar.html" %}
+    {% include "main/includes/error-messages.html" %}
     <div class="main-container">
         {% block content %}
         {% endblock %}
     </div>
 </body>
+
+<script src="{% static 'main/js/app.js' %}"></script>

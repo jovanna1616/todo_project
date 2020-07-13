@@ -1,7 +1,7 @@
 {% extends "main/header.html" %}
 {% block content %}
     <div>
-        <form method="POST">
+        <form method="POST" action="/login-user/">
             {% csrf_token %}
             {{form.as_p}}
             <button type="submit">Log in</button>
