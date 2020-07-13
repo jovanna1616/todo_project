@@ -14,7 +14,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You logged in with username {username}")
-                return redirect("main:todos")
+                return redirect("main:homepage")
             else:
                 messages.error(request, f"Login attempt for username {username} failed.")
         else:
@@ -24,3 +24,8 @@ def login_request(request):
     return render(request=request,
                   template_name="main/login.html",
                   context={"form": form})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("main:homepage")
