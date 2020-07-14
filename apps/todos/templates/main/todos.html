@@ -1,0 +1,34 @@
+{% extends "main/header.html" %}
+{% block content %}
+    {% for todo in todos %}
+    <h2>{{todo.title}}</h2>
+    <p>{{todo.content}}</p>
+    <p>Created by: {{todo.author}}</p>
+    <p>Creted at: {{todo.created_at}}</p>
+    {% endfor %}
+
+
+
+
+    {% if todos.has_other_pages %}
+    <ul>
+        {% if todos.has_previous %}
+        <li><a href="?page={{ todos.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+        <li><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in todos.paginator.page_range %}
+        {% if todos.number == i %}
+            <li><span>{{ i }} <span >(current)</span></span></li>
+        {% else %}
+            <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if todos.has_next %}
+        <li><a href="?page={{ todos.next_page_number }}">&raquo;</a></li>
+        {% else %}
+        <li><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+{% endblock %}
