@@ -1,0 +1,10 @@
+{% extends "main/header.html" %}
+{% block content %}
+    <a href="/todos">BACK</a>
+    <h2>{{todo.title}}</h2>
+    <p>{{todo.content}}</p>
+    <p>Created by: {{todo.author}}</p>
+    <p>Created at: {{todo.created_at}}</p>
+    <a href="">Edit</a>
+    <a href="">Delete</a>
+{% endblock %}

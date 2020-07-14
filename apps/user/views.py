@@ -23,7 +23,7 @@ def login_request(request):
         if user is not None:
             login(request, user)
             messages.info(request, f"You logged in with username {username}")
-            return redirect("main:homepage")
+            return redirect("main:todos:todos")
         else:
             messages.error(request, f"Login attempt for username {username} failed.")
     else:
@@ -50,7 +50,7 @@ def register_request(request):
         login(request, user)
         username = form.cleaned_data.get("username")
         messages.info(request, f"You registered and logged in with username {username}")
-        return redirect("main:homepage")
+        return redirect("main:todos:todos")
     else:
         for message in form.error_messages:
             message.error(request, f"{message}: {form.error_messages[message]}")

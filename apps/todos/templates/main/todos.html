@@ -1,14 +1,11 @@
 {% extends "main/header.html" %}
 {% block content %}
     {% for todo in todos %}
-    <h2>{{todo.title}}</h2>
+    <h2><a href="{% url 'main:todos:todo-form' todo_id=todo.id %}">{{todo.title}}</a></h2>
     <p>{{todo.content}}</p>
     <p>Created by: {{todo.author}}</p>
-    <p>Creted at: {{todo.created_at}}</p>
+    <p>Created at: {{todo.created_at}}</p>
     {% endfor %}
-
-
-
 
     {% if todos.has_other_pages %}
     <ul>

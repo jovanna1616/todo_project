@@ -1,11 +1,11 @@
 <div class="header-menu">
     {% if user.is_authenticated %}
         <p>Hi, {{user}}</p>
-        <a href="/logout">Logout</a>
-        <a href="/todos">Todos List</a>
+        <a href="{% url 'main:user:logout' %}">Logout</a>
+        <a href="{% url 'main:todos:todos' %}">Todos List</a>
     {% else %}
         <a href="/">Todo APP Homepage</a>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+        <a href="{% url 'main:user:login' %}">Login</a>
+        <a href="{% url 'main:user:register' %}">Register</a>
     {% endif %}
 </div>
