@@ -1,13 +1,19 @@
 {% extends "main/header.html" %}
 {% block content %}
     <div>
-        Update todo page
-        <div class="todo-form">
-            <form method="POST" action="{% url 'main:todos:todo-update-request' todo_id=todo.id %}">
+        <div>
+            <h1>{% if todo.id %}Update todo page{% else %}Crate new Todo page{% endif %}</h1>
+            <div class="todo-form">
+                {% if todo.id %}
+                    <form method="POST" action="{% url 'main:todos:todo-update-request' todo_id=todo.id %}">
+                {% else %}
+                    <form method="POST" action="{% url 'main:todos:todo-create-request' %}">
+                {% endif %}
                 {% csrf_token %}
                 {{form.as_p}}
-                <button type="submit">Update todo</button>
-            </form>
+                <button type="submit">{% if todo.id %}Update todo{% else %}Crate new Todo{% endif %}</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock %}

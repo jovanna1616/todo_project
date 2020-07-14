@@ -3,6 +3,7 @@
         <p>Hi, {{user}}</p>
         <a href="{% url 'main:user:logout' %}">Logout</a>
         <a href="{% url 'main:todos:todos' %}">Todos List</a>
+        <a href="{% url 'main:todos:todo-create-form' %}">Create new Todo</a>
     {% else %}
         <a href="/">Todo APP Homepage</a>
         <a href="{% url 'main:user:login' %}">Login</a>

@@ -34,6 +34,22 @@ def todo(request, todo_id):
                    context={"todo": todo})
 
 @require_http_methods(["GET"])
+def todo_create_form(request):
+    form = NewTodoForm
+    return render(request=request,
+                   template_name="main/todo-form.html",
+                   context={"form": form})
+
+@require_http_methods(["POST"])
+def todo_create_request(request):
+    form = NewTodoForm(request.POST)
+    if form.is_valid():
+        form.save()
+        title = form.cleaned_data["title"]
+        messages.info(request, f"You created new todo with title {title}")
+    return redirect("main:todos:todos")
+
+@require_http_methods(["GET"])
 def todo_update_form(request, todo_id):
     todo = Todo.objects.get(id=todo_id)
     form = NewTodoForm(instance=todo)
@@ -50,3 +66,11 @@ def todo_update_request(request, todo_id):
         title = form.cleaned_data["title"]
         messages.info(request, f"You updated todo with title {title}")
         return redirect("main:todos:todos")
+
+@require_http_methods(["GET"])
+def todo_delete(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    todo.delete()
+    messages.info(request, f"You deleted todo with title {todo.title}")
+    return redirect("main:todos:todos")
+    

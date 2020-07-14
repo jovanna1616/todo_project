@@ -6,5 +6,5 @@
     <p>Created by: {{todo.author}}</p>
     <p>Created at: {{todo.created_at}}</p>
     <a href="{% url 'main:todos:todo-update-form' todo_id=todo.id %}">Edit</a>
-    <a href="">Delete</a>
+    <a href="{% url 'main:todos:todo-delete' todo_id=todo.id %}">Delete</a>
 {% endblock %}
