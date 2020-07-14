@@ -1,0 +1,13 @@
+{% extends "main/header.html" %}
+{% block content %}
+    <div>
+        Update todo page
+        <div class="todo-form">
+            <form method="POST" action="{% url 'main:todos:todo-update-request' todo_id=todo.id %}">
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit">Update todo</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

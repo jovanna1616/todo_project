@@ -19,6 +19,8 @@ from . import views
 app_name = "todos"
 
 urlpatterns = [
-    path("todos/", views.todos, name = "todos"),
-    path("todos/<int:todo_id>/", views.todo_form, name="todo-form"),
+    path("todos/", views.todos, name="todos"),
+    path("todos/<int:todo_id>/", views.todo, name="todo"),
+    path("todo-update/<int:todo_id>/", views.todo_update_form, name = "todo-update-form"),
+    path("todo-update-request/<int:todo_id>/", views.todo_update_request, name="todo-update-request"),
 ]
