@@ -19,11 +19,11 @@ from . import views
 app_name = "todos"
 
 urlpatterns = [
-    path("todos/", views.todos, name="todos"),
-    path("todos/create", views.todo_create_form, name = "todo-create-form"),
-    path("todos/create-request", views.todo_create_request, name="todo-create-request"),
-    path("todos/<int:todo_id>/", views.todo, name="todo"),
-    path("todos/<int:todo_id>/update/", views.todo_update_form, name="todo-update-form"),
-    path("todos/<int:todo_id>/update-request/", views.todo_update_request, name="todo-update-request"),
-    path("todos/<int:todo_id>/delete/", views.todo_delete, name="todo-delete"),
+    path("", views.todos, name="todos"),
+    path("create", views.todo_create_form, name = "todo-create-form"),
+    path("create-request", views.todo_create_request, name="todo-create-request"),
+    path("<int:todo_id>/", views.todo, name="todo"),
+    path("<int:todo_id>/update/", views.todo_update_form, name="todo-update-form"),
+    path("<int:todo_id>/update-request/", views.todo_update_request, name="todo-update-request"),
+    path("<int:todo_id>/delete/", views.todo_delete, name="todo-delete"),
 ]
